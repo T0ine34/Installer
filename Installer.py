@@ -50,6 +50,8 @@ def get_apps():
     apps = []
     json = get(APIUSERURL).json()
     for i in range(len(json)):
+        if json[i]['name'] not in ('T0ine34', 'Installer')  and not  json[i]['name'].startswith('_'):
+            apps.append(json[i]['name'])
         apps.append({'name': json[i]['name'], 'id': json[i]['id']})
     return apps
     
